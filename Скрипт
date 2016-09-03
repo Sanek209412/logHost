@@ -1,0 +1,15 @@
+<?php
+
+$login = urldecode($_GET['user']);
+$pass = urldecode($_GET['password']);
+
+$dir = "./Users/$login"
+
+if(!mkdir($dir, 0777, true)){
+	die('Не удалось зарегистрировать пользователя!');
+}else{
+	file_put_contents("Usre/$login/user.php", "$login");
+	file_put_contents("Usre/$login/pass.php", "$pass");
+}
+
+?>
